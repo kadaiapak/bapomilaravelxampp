@@ -1,0 +1,27 @@
+1. create project
+composer create-project laravel/laravel bapomilaravel
+
+2. download breeze menggunakan composer4
+composer require laravel/breeze --dev
+
+3. install breeze
+php artisan breeze:install
+
+4. migrate tabel yang sudah dibuat oleh breeze
+php artisan migrate
+
+5. tambah field pada create user model yang akan dibuatkan tabelnya
+      $table->id();
+            $table->string('name');
+            $table->string('username')->nullable();
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->string('photo')->nullable();
+            $table->string('phone')->nullable();
+            $table->enum('role', ['admin','user'])->default('user'); 
+            $table->enum('status', ['active','inactive'])->default('active'); 
+            $table->rememberToken();
+            $table->timestamps();
+
+6. 
